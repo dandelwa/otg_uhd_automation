@@ -31,7 +31,7 @@ class Tests() :
             cmd = cmd1 + cmd2
             system(cmd)
     
-    def show_details(index):
+    def show_details(self, index):
         self.logging.info("Running test for %s" % (self.suite))
         self.logging.info("Running test with these arguments")
         self.logging.info(self.test_to_run[index])
