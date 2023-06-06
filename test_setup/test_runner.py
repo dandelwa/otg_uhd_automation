@@ -36,7 +36,7 @@ class Tests() :
             no_of_pkts = self.test_to_run[test]["noofpkts"]
             frame_size = self.test_to_run[test]["framesize"]
             cmd1 = "cd %s\n" % (self.path)
-            cmd2 = "python3 -m pytest -k test_bgp.py --noofdevices %s --noofports %s --noofpkts %s --noofflows %s --framesize %s --sessiontimeout %s" \
+            cmd2 = "python3 -m pytest -k test_bgp.py --noofdevices %s --noofports %s --noofpkts %s --noofflows %s --framesize %s --sessiontimeout %s --html otg_report.html" \
                 % (no_of_devices, no_of_ports, no_of_pkts, no_of_flows, frame_size, self.timeout)
             cmd = cmd1 + cmd2
             contents = subprocess.check_output(cmd, shell=True, text= True)
