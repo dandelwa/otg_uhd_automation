@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keng-controller-test
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: keng-controller-test
+  template:
+    metadata:
+      labels:
+        app: keng-controller-test
+    spec:
+      containers:
+        - args:
+            - --accept-eula
+          image: docker-virtual-p4isg.artifactorylbj.it.keysight.com/controller:0.0.1-4080
+          imagePullPolicy: IfNotPresent
+          name: controller
+          ports:
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 40051
+              protocol: TCP
+        - image: ghcr.io/open-traffic-generator/ixia-c-gnmi-server:1.11.14
+          imagePullPolicy: IfNotPresent
+          name: container-2
+          ports:
+            - containerPort: 50051
+              protocol: TCP
+      dnsPolicy: ClusterFirst
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keng-controller-test
+spec:
+  selector:
+    app: keng-controller-test
+  type: NodePort
+  ports:
+    - port: 8443
+      targetPort: 8443
+      name: http
+    - port: 40051
+      targetPort: 40051
+      name: grpc
+    - port: 50051
+      targetPort: 50051
+      name: gnmi

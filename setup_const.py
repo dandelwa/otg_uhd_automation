@@ -1,0 +1,6 @@
+SYSTEMTESTPATH="/home/test/remote/test_folder/systemTests"
+FPPATH="/home/test/remote/featureprofiles"
+RELEASEINFOURL = "https://raw.githubusercontent.com/open-traffic-generator/ixia-c/main/docs/releases.md"
+DEPLOYMENTFILEPATH = "/home/test/remote/test_folder/automation/deployment"
+MAINLOGFILE="/home/test/remote/test_folder/automation/run.log"
+HISTORYFILE="/home/test/remote/test_folder/automation/history.txt"
