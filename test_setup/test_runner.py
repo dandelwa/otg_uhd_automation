@@ -18,6 +18,14 @@ class Tests() :
         if self.suite =="BGP":
             self.no_of_tests = len(self.tests["BGP"])
             self.test_to_run = self.tests["BGP"]
+        elif self.suite == "ISIS":
+            self.no_of_tests = len(self.tests["ISIS"])
+            self.test_to_run = self.tests["ISIS"]
+        elif self.suite == "ISIS_BGP":
+            self.no_of_tests = len(self.tests["ISIS_BGP"])
+            self.test_to_run = self.tests["ISIS_BGP"]
+    
+
     
     def run_test(self):    
         for test in self.test_to_run:

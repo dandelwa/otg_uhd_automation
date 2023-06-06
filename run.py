@@ -23,3 +23,13 @@ if deploy.current_controller_version() != deploy.controller_version_to_be_deploy
 bgp_tests = Tests(tests, SYSTEMTESTPATH, logging)
 bgp_tests.get_test()
 bgp_tests.run_test()
+
+isis_tests = Tests(tests, SYSTEMTESTPATH, logging, suite="ISIS")
+isis_tests.get_test()
+isis_tests.run_test()
+
+isisbgp_tests = Tests(tests, SYSTEMTESTPATH, logging, suite="ISIS_BGP")
+isisbgp_tests.get_test()
+isisbgp_tests.run_test()
+
+
