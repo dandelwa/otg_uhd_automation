@@ -1,4 +1,6 @@
 from os import system
+import subprocess
+
 class Tests() :
     def __init__(self, tests, path, logging, mode="systest",Timeout = 120, suite="BGP") :
         self.timeout = "120"
@@ -29,7 +31,8 @@ class Tests() :
             cmd2 = "python3 -m pytest -k test_bgp.py --noofdevices %s --noofports %s --noofpkts %s --noofflows %s --framesize %s --sessiontimeout %s" \
                 % (no_of_devices, no_of_ports, no_of_pkts, no_of_flows, frame_size, self.timeout)
             cmd = cmd1 + cmd2
-            system(cmd)
+            contents = subprocess.check_output(cmd, shell=True, text= True)
+            self.logging.info(contents)
     
     def show_details(self, index):
         self.logging.info("Running test for %s" % (self.suite))
