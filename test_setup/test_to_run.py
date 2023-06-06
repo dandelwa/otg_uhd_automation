@@ -24,7 +24,7 @@ tests = {
         "noofpkts":"2000",
         "framesize":"156"
     }
-}
+},
 "ISIS" : {
     "1" : {
     "name" : "test_1",
@@ -50,7 +50,7 @@ tests = {
         "noofpkts":"2000",
         "framesize":"156"
     }
-}
+},
 "ISIS_BGP" : {
     "1" : {
     "name" : "test_1",
