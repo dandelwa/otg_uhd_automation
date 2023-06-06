@@ -1,0 +1,6 @@
+[submodule "tests/systemTests/submodules/systemTest"]
+	path = tests/systemTests/submodules/systemTest
+	url = https://github.com/dandelwa/otg_uhd_sys_test.git
+[submodule "tests/systemTest"]
+	path = tests/systemTest
+	url = https://github.com/dandelwa/otg_uhd_sys_test.git
