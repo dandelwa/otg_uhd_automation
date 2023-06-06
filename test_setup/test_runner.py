@@ -40,12 +40,15 @@ class Tests() :
                 % (no_of_devices, no_of_ports, no_of_pkts, no_of_flows, frame_size, self.timeout)
             cmd = cmd1 + cmd2
             contents = subprocess.check_output(cmd, shell=True, text= True)
+            print(contents)
             self.logging.info(contents)
     
     def show_details(self, index):
         self.logging.info("Running test for %s" % (self.suite))
+        print("Running Test for %s" % (self.suite))
         self.logging.info("Running test with these arguments")
         self.logging.info(self.test_to_run[index])
+        print(self.test_to_run[index])
 
 
             
