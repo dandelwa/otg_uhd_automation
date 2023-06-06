@@ -1,4 +1,5 @@
-root - INFO - Creating deployment class using releaseinfourl=https://raw.githubusercontent.com/open-traffic-generator/ixia-c/main/docs/releases.md and deploymentfilepath=/home/test/remote/test_folder/automation/deployment
-root - INFO - Object created for deployment : <deployment.deploy.deployment object at 0x7fc2a106f4a8>
-root - INFO - Current versions are. Controller: 0.0.1-4064
- and Gnmi : 1.11.13
+root - INFO - Creating deployment class using releaseinfourl=https://raw.githubusercontent.com/open-traffic-generator/ixia-c/main/docs/releases.md and deploymentfilepath=/home/ci/tests/otg_uhd_automation/deployment
+root - INFO - Object created for deployment : <deployment.deploy.deployment object at 0x7f50d4012520>
+root - INFO - Current versions are. Controller: 0.0.1-4080
+ and Gnmi : 1.11.14
+root - INFO - Latest Controller version is 0.0.1-4080  and gnmi version is 1.11.14

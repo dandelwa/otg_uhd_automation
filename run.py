@@ -20,6 +20,6 @@ logging.info("Latest Controller version is %s  and gnmi version is %s" % (deploy
 if deploy.current_controller_version() != deploy.controller_version_to_be_deployed:
     deploy.deploy_yaml_file()
 
-bgp_tests = Tests(tests)
+bgp_tests = Tests(tests, SYSTEMTESTPATH)
 bgp_tests.get_test()
 bgp_tests.run_test()

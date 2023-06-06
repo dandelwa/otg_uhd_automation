@@ -1,5 +1,5 @@
 tests = {"BGP" : {
-    1 : {
+    "1" : {
     "name" : "test_1",
     "no_of_devices": "10",
     "no_of_ports":"2",
@@ -7,7 +7,7 @@ tests = {"BGP" : {
     "noofpkts":"100",
     "framesize":"64"
     },
-    2 : {
+    "2" : {
         "name" : "test_2",
         "no_of_devices": "100",
         "no_of_ports":"4",
@@ -15,7 +15,7 @@ tests = {"BGP" : {
         "noofpkts":"1000",
         "framesize":"128"
     },
-    3 : {
+    "3" : {
         "name" : "test_3",
         "no_of_devices": "200",
         "no_of_ports":"8",

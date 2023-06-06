@@ -15,7 +15,7 @@ spec:
       containers:
         - args:
             - --accept-eula
-          image: docker-virtual-p4isg.artifactorylbj.it.keysight.com/controller:0.0.1-4080
+          image : ghcr.io/open-traffic-generator/licensed/ixia-c-controller:0.0.1-4080
           imagePullPolicy: IfNotPresent
           name: controller
           ports:

@@ -57,7 +57,7 @@ class deployment():
         deploy_file = open(yaml_file_path_modified, "w")
         for line in yaml_file:
             if "<controller>" in line.strip():
-                line = "          image: docker-virtual-p4isg.artifactorylbj.it.keysight.com/controller:%s\n" % (self.controller_version_to_be_deployed)
+                line = "          image : ghcr.io/open-traffic-generator/licensed/ixia-c-controller:%s\n" % (self.controller_version_to_be_deployed)
             elif "<gnmi>" in line.strip():
                 line = "        - image: ghcr.io/open-traffic-generator/ixia-c-gnmi-server:%s\n" % (self.gnmi_version_to_be_deployed)
             deploy_file.write(line)
