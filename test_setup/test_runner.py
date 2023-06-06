@@ -1,5 +1,6 @@
 from os import system
 import subprocess
+import re
 
 class Tests() :
     def __init__(self, tests, path, logging, mode="systest",Timeout = 120, suite="BGP") :
@@ -11,8 +12,7 @@ class Tests() :
         self.tests = tests
         self.test_to_run = ""
         self.path = path
-        self.logging = logging
-    
+        self.logging = logging    
 
     def get_test(self):
         if self.suite =="BGP":
@@ -24,9 +24,7 @@ class Tests() :
         elif self.suite == "ISIS_BGP":
             self.no_of_tests = len(self.tests["ISIS_BGP"])
             self.test_to_run = self.tests["ISIS_BGP"]
-    
-
-    
+        
     def run_test(self):    
         for test in self.test_to_run:
             self.show_details(test)
@@ -36,12 +34,20 @@ class Tests() :
             no_of_pkts = self.test_to_run[test]["noofpkts"]
             frame_size = self.test_to_run[test]["framesize"]
             cmd1 = "cd %s\n" % (self.path)
-            cmd2 = "python3 -m pytest -k test_bgp.py --noofdevices %s --noofports %s --noofpkts %s --noofflows %s --framesize %s --sessiontimeout %s --html otg_report.html" \
+            cmd2 = "python3 -m pytest -k test_bgp.py --noofdevices %s --noofports %s --noofpkts %s --noofflows %s --framesize %s --sessiontimeout %s" \
                 % (no_of_devices, no_of_ports, no_of_pkts, no_of_flows, frame_size, self.timeout)
             cmd = cmd1 + cmd2
             contents = subprocess.check_output(cmd, shell=True, text= True)
             print(contents)
-            self.logging.info(contents)
+            match = re.search(r'(\d+) passed', contents)
+            if match :
+                passed_count = int(match.group(1))
+                if passed_count == 1:
+                    self.logging.info("Test Passed")
+                else:
+                    self.logging.info(contents)
+
+            
     
     def show_details(self, index):
         self.logging.info("Running test for %s" % (self.suite))
